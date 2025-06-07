@@ -13,7 +13,7 @@ Built using **HTML, CSS, and JavaScript** with integration to third-party APIs.
 
 ## 🎥 Demo
 
-🔗 [Check out the Live Site](https://your-live-site-url.com)
+🔗 [Check out the Live Site](https://browser-dashboard.netlify.app/)
 
 ---
 
