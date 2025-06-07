@@ -114,16 +114,39 @@ async function fetchWeather() {
   }
 }
 
+function showCryptoLoading() {
+  document.getElementById("crypto-top").innerHTML = `Loading crypto data <span class="loading-spinner"></span>`;
+  document.getElementById("crypto-details").innerHTML = '';
+}
+
+function showWeatherLoading() {
+  document.getElementById("weather").innerHTML = `Loading weather data <span class="loading-spinner"></span>`;
+}
+
+function showTimeLoading() {
+  document.getElementById('time').textContent = 'Loading time...';
+}
+
+function showAuthorLoading() {
+  document.getElementById('author').textContent = 'Loading background info...';
+}
+
+
 async function init() {
+  showCryptoLoading();
+  showWeatherLoading();
+  showTimeLoading();
+  showAuthorLoading();
+
   await setBackgroundImage();
   await fetchAndStoreCoinsData();
   displayRandomCoin();
   updateTime();
   fetchWeather();
 
-  setInterval(fetchWeather, WEATHER_UPDATE_INTERVAL);
-  setInterval(fetchAndStoreCoinsData, COINS_UPDATE_INTERVAL);
-  setInterval(displayRandomCoin, COIN_DISPLAY_INTERVAL);
+  setInterval(fetchAndStoreCoinsData, 100000); // Refresh coins every 100 seconds
+  setInterval(displayRandomCoin, 5000);        // Update coin display every 5 seconds
 }
+
 
 init();
